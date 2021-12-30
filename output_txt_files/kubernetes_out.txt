@@ -1,0 +1,38 @@
+voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
+Docker ID and Image: 557848acdc14 charan
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: charankumarthirumala
+Password: 
+WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+Using default tag: latest
+The push refers to repository [docker.io/charankumarthirumala/charan]
+38201dcfda05: Pushed 
+f69b0fffbf81: Pushed 
+d8c1b870eafd: Pushed 
+799a7872c8c7: Layer already exists 
+715450468940: Layer already exists 
+c9d608035aef: Layer already exists 
+bb9c02680a15: Layer already exists 
+a637c551a0da: Layer already exists 
+2c8d31157b81: Layer already exists 
+7b76d801397d: Layer already exists 
+f32868cde90b: Layer already exists 
+0db06dff9d9a: Layer already exists 
+latest: digest: sha256:1f1b76f9a3f85029b953716e5d5494ef9017fc1f2f6660dcdde469e4570c64b5 size: 2849
+
+NAME     READY   STATUS    RESTARTS   AGE
+charan   1/1     Running   0          5m46s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
