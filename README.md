@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/charankumarthirumala/Project5/tree/main.svg?style=svg)](https://circleci.com/gh/charankumarthirumala/Project5/tree/main)
 
 ## Project Overview
 
