@@ -1,5 +1,7 @@
+Successfully built 529db884b4d4
+Successfully tagged charan:latest
 REPOSITORY                    TAG             IMAGE ID       CREATED                  SIZE
-charan                        latest          557848acdc14   Less than a second ago   1.26GB
+charan                        latest          529db884b4d4   Less than a second ago   1.29GB
 gcr.io/k8s-minikube/kicbase   v0.0.28         e2a6c047bedd   3 months ago             1.08GB
 lambci/lambda                 python3.8       094248252696   11 months ago            524MB
 lambci/lambda                 nodejs12.x      22a4ada8399c   11 months ago            390MB
@@ -17,13 +19,24 @@ python                        3.7.3-stretch   34a518642c76   2 years ago        
  * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 125-696-148
-[2021-12-30 09:33:59,776] INFO in app: JSON payload: 
+ * Debugger PIN: 267-839-725
+ 
+ voclabs:~/Project5 (main) $ ./make_prediction.sh 
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+[2021-12-31 10:43:38,386] INFO in app: JSON payload: 
 {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2021-12-30 09:33:59,793] INFO in app: Inference payload DataFrame: 
+[2021-12-31 10:43:38,424] INFO in app: Inference payload DataFrame: 
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
-[2021-12-30 09:33:59,802] INFO in app: Scaling Payload: 
+[2021-12-31 10:43:38,442] INFO in app: Scaling Payload: 
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
-172.17.0.1 - - [30/Dec/2021 09:33:59] "POST /predict HTTP/1.1" 200 -
+[2021-12-31 10:43:38,459] INFO in app: Output prediction: 
+{'prediction': [20.35373177134412]}
+172.17.0.1 - - [31/Dec/2021 10:43:38] "POST /predict HTTP/1.1" 200 -

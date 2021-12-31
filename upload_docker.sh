@@ -10,7 +10,7 @@ dockerpath=charankumarthirumala/charan
 
 # Step 2:  
 # Authenticate & tag
-echo "Docker ID and Image: 557848acdc14 charan"
+echo "Docker ID and Image:  529db884b4d4 charan"
 docker tag charan $dockerpath
 docker login 
 

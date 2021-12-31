@@ -1,5 +1,5 @@
-voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
-Docker ID and Image: 557848acdc14 charan
+voclabs:~/Project5 (main) $ ./upload_docker.sh 
+Docker ID and Image:  529db884b4d4 charan
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 Username: charankumarthirumala
 Password: 
@@ -10,9 +10,9 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
 Using default tag: latest
 The push refers to repository [docker.io/charankumarthirumala/charan]
-38201dcfda05: Pushed 
-f69b0fffbf81: Pushed 
-d8c1b870eafd: Pushed 
+1a3f0f917410: Pushed 
+ea639604543a: Pushed 
+596608bb703d: Pushed 
 799a7872c8c7: Layer already exists 
 715450468940: Layer already exists 
 c9d608035aef: Layer already exists 
@@ -22,8 +22,18 @@ a637c551a0da: Layer already exists
 7b76d801397d: Layer already exists 
 f32868cde90b: Layer already exists 
 0db06dff9d9a: Layer already exists 
-latest: digest: sha256:1f1b76f9a3f85029b953716e5d5494ef9017fc1f2f6660dcdde469e4570c64b5 size: 2849
-
+latest: digest: sha256:8fdf6502323a86ff4401cf4a9b2cc3d0ab04ceb841ee58d9f99369edcc7bbb02 size: 2849
+voclabs:~/Project5 (main) $ ./run_kubernetes.sh 
+pod/charan created
+NAME     READY   STATUS    RESTARTS   AGE
+charan   0/1     Pending   0          0s
+error: unable to forward port because pod is not running. Current status=Pending
+voclabs:~/Project5 (main) $ kubectl get pod
+NAME     READY   STATUS              RESTARTS   AGE
+charan   0/1     ContainerCreating   0          22s
+voclabs:~/Project5 (main) $ kubectl get pod
+NAME     READY   STATUS    RESTARTS   AGE
+charan   1/1     Running   0          33s
 NAME     READY   STATUS    RESTARTS   AGE
 charan   1/1     Running   0          5m46s
 Forwarding from 127.0.0.1:8000 -> 80
@@ -55,9 +65,32 @@ Port: 8000
   ]
 }
 
+voclabs:~/Project5 (main) $ ./make_prediction.sh
 Port: 8000
 {
   "prediction": [
     20.35373177134412
   ]
 }
+
+[2021-12-31 10:51:06,642] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-12-31 10:51:06,674] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-12-31 10:51:06,708] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-12-31 10:51:06,719] INFO in app: Output prediction: 
+{'prediction': [20.35373177134412]}
+172.17.0.1 - - [31/Dec/2021 10:51:06] "POST /predict HTTP/1.1" 200 -
+
+
+voclabs:~/Project5 (main) $ kubectl get pod
+NAME     READY   STATUS    RESTARTS   AGE
+charan   1/1     Running   0          6m50s
+voclabs:~/Project5 (main) $ minikube stop
+✋  Stopping node "minikube"  ...
+🛑  Powering off "minikube" via SSH ...
+🛑  1 node stopped.
+voclabs:~/Project5 (main) $ 
